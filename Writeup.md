@@ -3,6 +3,9 @@
 [image2]: ./writeup_images/undistorted.jpg "Undistorted"
 [image3]: ./writeup_images/binary.jpg "Binary"
 [image4]: ./writeup_images/perspective_transform.jpg "Perspective Transform"
+[image5]: ./writeup_images/poly_lines.jpg "Polynomial Lines"
+[image6]: ./writeup_images/result.jpg "Result"
+
 
 # Writeup
 This is the test image that I will use in this writeup to illustrate each part of the code.
@@ -38,3 +41,25 @@ I then applied the `cv2.getPerspectiveTransform` and `cv2.warpPerspective` funct
 ![alt text][image4]
 
 ## Indentifying the Lanes and Fitting Polynomials
+The code for this step is contained in the sixth code cell. I identified tha lane pixels using the sliding windows technique. I created a histogram to find the starting x coordinates for the lanes and to find the midpoint. `nonzero` contains the x and y coordinates of all nonzero pixels in the image, while `left_lane_inds` and `right_lane_inds` will receive the lane pixel indices. 
+
+The code loops through each window, defining the boundaries and identifying the nonzero pixels in the x adnd y directions. These indiced are then added to `left_lane_inds` and `right_lane_inds`. The next window will be repositioned if more than `minpix` have been found. `left_lane_inds` and `right_lane_inds` are concatenated with themselves and the pixel positions are extraced into `leftx`, `lefty`, `rightx`, and `righty`. 
+
+Using the `np.polyfit` function, the left and right fits are calculated (`left_fit` and `right_fit`, respectively). Then, x and y values for plotting are calculated and the following results are produced:
+
+![alt text][image5]
+
+## Calculating Radius of Curvature and Lane Deviation
+The code for this step is contained in the seventh code cell. I converted the lane polynomials from pixels to meters in `left_fit_cr` and `right_fit_cr`. I then used the equation found in the lesson to calculate the radii `left_curverad` and  `right_curverad`. 
+
+To find the lane deviation, I found the left and right polynomial x intercepts. Using those as the left ane right lane points, I found the center by averaging them. The camera is located at the center of the car, so I calculated that by dividing the width of the image by 2. The deviation is simply the difference of the center of the lane and the center of the car.
+
+## Putting Information onto Original Image]
+The code for this step is contained in the eighth code cell. I used the left and right polynomials of the line along with the `cv2.fillPoly` function to draw the green polygon. I then used the inverse matrix and the `cv2.warpPerspective` function to unwarp the image. I then used `cv2.addWeighted` to add everything to the original image.
+
+To write the text, I rounded the numbers and used `cv2.putText`. I determined if the car was left or right of the center of the lane to make the words on the screen display differently. Combining everything yields this final result:
+
+![alt text][image6]
+
+
+
