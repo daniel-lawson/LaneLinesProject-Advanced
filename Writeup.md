@@ -61,6 +61,8 @@ To write the text, I rounded the numbers and used `cv2.putText`. I determined if
 
 ![alt text][image6]
 
-## Applying to a video
+## Applying to a Video - Final Result
 Here's a [link to my video result](./output_video.mp4)
 
+## Discussion
+The biggest challenge in this project was the polynomial. It is manageable to do the problem on paper, but converting the math into Python was difficult for me. The pipeline is fairly resilient, however, I think it would fail at night when the camera is reliant on the car's headlights. This would make the camera pickup a lot less information, and would therefore produce a sloppier result. To tackle this, a sensor would have to be used that doesn't use light like a camera. This would most likely be in the form of some sort of radar.
