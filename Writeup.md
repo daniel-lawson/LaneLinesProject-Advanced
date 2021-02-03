@@ -61,5 +61,6 @@ To write the text, I rounded the numbers and used `cv2.putText`. I determined if
 
 ![alt text][image6]
 
-
+## Applying to a video
+Here's a [link to my video result](./output_video.mp4)
 
