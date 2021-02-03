@@ -54,7 +54,7 @@ The code for this step is contained in the seventh code cell. I converted the la
 
 To find the lane deviation, I found the left and right polynomial x intercepts. Using those as the left ane right lane points, I found the center by averaging them. The camera is located at the center of the car, so I calculated that by dividing the width of the image by 2. The deviation is simply the difference of the center of the lane and the center of the car.
 
-## Putting Information onto Original Image]
+## Putting Information onto Original Image
 The code for this step is contained in the eighth code cell. I used the left and right polynomials of the line along with the `cv2.fillPoly` function to draw the green polygon. I then used the inverse matrix and the `cv2.warpPerspective` function to unwarp the image. I then used `cv2.addWeighted` to add everything to the original image.
 
 To write the text, I rounded the numbers and used `cv2.putText`. I determined if the car was left or right of the center of the lane to make the words on the screen display differently. Combining everything yields this final result:
