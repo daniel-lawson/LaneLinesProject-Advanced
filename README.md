@@ -1,6 +1,6 @@
 # LaneLinesProject-Advanced
 
-`camera_cal` contains the chesssboard calibrations images.
+`camera_cal` contains the chesssboard calibrations images
 
 `test_images` contains the raw images that are fed into the code
 
@@ -8,9 +8,10 @@
 
 `writeup_images` contains images after each step of the code
 
-`LLA_code` contains all of the code for this project
+`LLA_code.ipynb` contains all of the code for this project
 
-`project_video` is the raw video that is fed into the code
+`project_video.mp4` is the raw video that is fed into the code
 
-`output_video` is the video after running through the code
+`output_video.mp4` is the video after running through the code
 
+`Writeup.md` is my explanation of the process
